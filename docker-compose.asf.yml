@@ -2,12 +2,14 @@ version: '3.4'
 
 services:
   customers:
+    image: susunkar/ecommerceapicustomers:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80/http"
 
   orders:
+    image: susunkar/ecommerceapiorders:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
@@ -15,6 +17,7 @@ services:
 
 
   products:
+    images: susunkar/ecommerceapiproducts:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
@@ -22,11 +25,12 @@ services:
 
 
   search:
+    images: susunkar/ecommerceapisearch:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - Services__Products=http://products
-      - Services__Customers=http://customers
-      - Services__Orders=http://orders
+      - Services__Products=http://10.0.0.4:19080/products/lil/products/
+      - Services__Customers=http://10.0.0.4:19080/products/lil/customers/
+      - Services__Orders=http://10.0.0.4:19080/products/lil/orders/
     ports:
       - "6004:80"
 
