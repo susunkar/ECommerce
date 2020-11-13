@@ -20,7 +20,7 @@ services:
 
 
   products:
-    images: susunkar/ecommerceapiproducts:latest
+    image: susunkar/ecommerceapiproducts:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
@@ -29,7 +29,7 @@ services:
 
 
   search:
-    images: susunkar/ecommerceapisearch:latest
+    image: susunkar/ecommerceapisearch:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - Services__Products=http://10.0.0.4:19080/products/lil/products/
