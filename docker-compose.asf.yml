@@ -8,8 +8,6 @@ services:
     ports:
       - "80/http"
 
-
-
   orders:
     image: susunkar/ecommerceapiorders:latest
     environment:
@@ -17,19 +15,15 @@ services:
     ports:
       - "80/http"
 
-
-
   products:
-    images: susunkar/ecommerceapiproducts:latest
+    image: susunkar/ecommerceapiproducts:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80/http"
 
-
-
   search:
-    images: susunkar/ecommerceapisearch:latest
+    image: susunkar/ecommerceapisearch:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - Services__Products=http://10.0.0.4:19080/products/lil/products/
@@ -37,5 +31,3 @@ services:
       - Services__Orders=http://10.0.0.4:19080/products/lil/orders/
     ports:
       - "6004:80"
-
-
